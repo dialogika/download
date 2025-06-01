@@ -1,0 +1,143 @@
+.map-list-container {
+  height: 460px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Map Navigation Sidebar */
+.map-navbar {
+  height: 460px;
+  /* width: 400px; */
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  gap: 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #0072b1 #f1f1f1;
+  box-sizing: border-box;
+  direction: rtl;
+}
+.map-navbar > * {
+  direction: ltr;
+}
+
+/* WebKit-based browsers (Chrome, Safari, Edge) */
+.map-navbar::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 10px;
+}
+
+.map-navbar::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px; 
+}
+
+.map-navbar::-webkit-scrollbar-thumb {
+  background-color: #0072b1; 
+  border-radius: 10px; 
+  border: 2px solid #f1f1f1;
+}
+
+.map-navbar::-webkit-scrollbar-thumb:hover {
+  background-color: #005a8b; 
+}
+
+/* Map Content */
+.map-content {
+  border-radius: 8px;
+  width: 100%;
+  height: 460px;
+  min-height: 350px;
+  position: relative;
+}
+
+.map-content .logo {
+  position: relative;
+  padding-top: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url("../../img/dialogika-map-pin.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  mask: none;
+  -webkit-mask: none;
+}
+.map-content .logo::after {
+  content: "";
+  background: #111941;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1em;
+  height: 1em;
+  z-index: 269;
+  border-radius: 50%;
+  animation: pulse 1.3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(0) scale(2.5);
+    opacity: 0;
+  }
+}
+
+
+.map-list-container {
+  padding-top: 30px;
+  height: 460px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+@media screen and (max-width: 1025px) {
+  .map-list-container {
+    flex-direction: column;
+    height: auto;
+  }
+  .map-navbar{
+    margin-top: -20px;
+    flex-direction: row;
+    height: auto;
+  }
+
+}
+
+.leaflet-popup-content {
+  padding: 0.5rem;
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+  min-width: 200px;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+.leaflet-popup-content h3 {
+  margin: 0 0 0.5rem;
+}
+.leaflet-popup-content p {
+  margin: 0;
+}
+.leaflet-popup-content .links {
+  margin-top: 0.5rem;
+}
+.leaflet-popup-content a {
+  color: #0e4bab;
+  padding-right: 1rem;
+}
+.leaflet-popup-content-wrapper{
+  
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  top: 15px;
+  right: 15px;
+  z-index: 1;
+}

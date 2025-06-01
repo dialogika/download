@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.dialogika.co/blog
+
+# Sitemaps
+Sitemap: https://www.dialogika.co/sitemap.xml
