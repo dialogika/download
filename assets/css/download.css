@@ -1,0 +1,456 @@
+.sections {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-container {
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  perspective: 1000px;
+}
+
+.carousel-images {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: visible; /* ini kuncinya agar gambar sebelah kanan/kiri kelihatan */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-images img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  transition: all 0.6s ease;
+  opacity: 0;
+  transform: translateX(100px) scale(0.8);
+}
+
+/* Gambar utama (aktif) */
+.carousel-images img.active {
+  opacity: 1;
+  z-index: 5;
+  transform: translateX(0) scale(1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Gambar sebelumnya (kiri) */
+.carousel-images img.prev {
+  opacity: 0.7;
+  z-index: 4;
+  transform: translateX(-300px) scale(0.85);
+  filter: brightness(0.8);
+}
+
+/* Gambar selanjutnya (kanan) */
+.carousel-images img.next {
+  opacity: 0.6;
+  z-index: 3;
+  transform: translateX(300px) scale(0.85);
+  filter: brightness(0.7);
+}
+
+/* Gambar jauh di belakang kiri */
+.carousel-images img.far-prev {
+  opacity: 0.4;
+  z-index: 2;
+  transform: translateX(-500px) scale(0.7);
+  filter: brightness(0.6);
+}
+
+/* Gambar jauh di belakang kanan */
+.carousel-images img.far-next {
+  opacity: 0.3;
+  z-index: 1;
+  transform: translateX(500px) scale(0.7);
+  filter: brightness(0.5);
+}
+
+.controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 20px;
+  z-index: 6;
+}
+
+.controls button {
+  background: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.controls button:hover {
+  background: #f8f8f8;
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.controls button:active {
+  transform: scale(0.95);
+}
+
+.image-counter {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 6;
+}
+
+.indicators {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 6;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: #333;
+  transform: scale(1.2);
+}
+
+.indicator:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    height: 300px;
+  }
+
+  .controls button {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .controls {
+    padding: 0 15px;
+  }
+
+  /* Adjust stacking for mobile */
+  .carousel-images img.prev {
+    transform: translateX(-40px) scale(0.9);
+  }
+
+  .carousel-images img.next {
+    transform: translateX(40px) scale(0.85);
+  }
+
+  .carousel-images img.far-prev {
+    transform: translateX(-80px) scale(0.75);
+  }
+
+  .carousel-images img.far-next {
+    transform: translateX(80px) scale(0.7);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  .carousel {
+    height: 250px;
+  }
+
+  /* Further adjust for small screens */
+  .carousel-images img.prev {
+    transform: translateX(-30px) scale(0.92);
+  }
+
+  .carousel-images img.next {
+    transform: translateX(30px) scale(0.88);
+  }
+
+  .carousel-images img.far-prev {
+    transform: translateX(-60px) scale(0.8);
+  }
+
+  .carousel-images img.far-next {
+    transform: translateX(60px) scale(0.75);
+  }
+}
+
+//----------KATEGORI----------//
+
+.kategori-section {
+  text-align: center;
+  padding: 20px;
+}
+
+.section-title h2 {
+  font-weight: bold;
+  color: #0c2a70;
+  margin-bottom: 20px;
+}
+
+.kategori-list {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.kategori-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.circle {
+  width: 100px;
+  height: 100px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+}
+
+.circle:hover {
+  background-color: #bbb;
+  cursor: pointer;
+}
+
+.kategori-label {
+  font-size: 14px;
+  color: #333;
+}
+
+//----------KATEGORI----------//
+
+//----------SHORT----------//
+
+.container {
+  backdrop-filter: blur(10px);
+  background: white;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
+.shorts-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.short-card {
+  width: 250px;
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  background: white;
+  backdrop-filter: blur(10px);
+  transition: transform 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.short-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #07276b;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.2s ease;
+  z-index: 0;
+  border-radius: 15px;
+}
+
+.short-card:hover::before {
+  transform: scaleY(1);
+}
+
+.short-thumbnail {
+  width: calc(100% - 16px);
+  aspect-ratio: 9 / 16;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 8px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.short-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.9) contrast(1.1);
+  display: block;
+}
+
+.play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.play-overlay::before {
+  content: "▶";
+  color: #333;
+  font-size: 16px;
+  margin-left: 2px;
+}
+
+.short-card:hover .play-overlay {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.2);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.4);
+  }
+}
+
+.short-info {
+  margin: 12px;
+  margin-top: 8px;
+  position: relative;
+  z-index: 2;
+}
+
+.short-title {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 4px;
+  color: black;
+  transition: color 0.3s ease;
+  text-shadow: none;
+}
+
+.short-card:hover .short-title {
+  color: #ffffff;
+}
+
+.short-channel {
+  font-size: 12px;
+  color: black;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.short-card:hover .short-channel {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.short-card:hover .short-channel::before {
+  opacity: 1;
+}
+
+.stats-overlay {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 10px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.short-card:hover .stats-overlay {
+  opacity: 1;
+  transform: translateY(-5px);
+}
+
+/* Glowing border animation */
+.short-card:hover {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3),
+      0 0 30px rgba(255, 255, 255, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  to {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4),
+      0 0 40px rgba(255, 255, 255, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .short-card {
+    width: 160px;
+  }
+
+  .short-card:hover {
+    transform: translateY(-10px) scale(1.03);
+  }
+}
+//----------KATEGORI----------//
