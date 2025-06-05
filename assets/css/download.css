@@ -21,7 +21,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: visible; /* ini kuncinya agar gambar sebelah kanan/kiri kelihatan */
+  overflow: visible;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -265,6 +265,48 @@
 
 //----------KATEGORI----------//
 
+//----------KATEGORI----------//
+
+.kotak-section {
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+}
+
+.kotak-list {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.kategori-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.kotak {
+  width: 200px;
+  height: 100px;
+  background-color: #d9d9d9;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+}
+
+.circle:hover {
+  background-color: #bbb;
+  cursor: pointer;
+}
+
+.kategori-label {
+  font-size: 14px;
+  color: #333;
+}
+
+//----------KATEGORI----------//
+
 //----------SHORT----------//
 
 .container {
@@ -301,7 +343,7 @@
   background: #07276b;
   transform: scaleY(0);
   transform-origin: bottom;
-  transition: transform 0.2s ease;
+  transition: transform 0.4s ease;
   z-index: 0;
   border-radius: 15px;
 }
